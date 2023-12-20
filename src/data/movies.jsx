@@ -177,4 +177,39 @@ const movies = [
   },
 ];
 
+export function Movie() {
+  return (
+    <div>
+      <h1>Movie List Section</h1>
+      <div>
+        {movies.map((item) => (
+          <div className="container">
+            <div>
+              <img className="image" src={item.image} alt="" />
+            </div>
+            <div className="text-container">
+              <div className="text">title: {item.title}</div>
+              <div className="text">year: {item.year}</div>
+              <div className="text">runtime: {item.runtime}</div>
+              <div className="text">director: {item.director}</div>
+              <div className="text-genres">
+                genres:{" "}
+                {item.genres.map((genre, i) => {
+                  return (
+                    <div className="genres" key={i}>
+                      {genre}
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="text">imdbRating: {item.imdbRating}</div>
+              <div className="text">imdbVotes: {item.imdbVotes}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default movies;

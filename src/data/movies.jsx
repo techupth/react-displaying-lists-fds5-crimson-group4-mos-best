@@ -67,7 +67,7 @@ const movies = [
   },
   {
     title: "Game of Thrones",
-    year: "2011–",
+    year: "2011",
     runtime: "56 min",
     director: "N/A",
     image:
@@ -78,7 +78,7 @@ const movies = [
   },
   {
     title: "Vikings",
-    year: "2013–",
+    year: "2013",
     runtime: "44 min",
     director: "N/A",
     image:
@@ -89,7 +89,7 @@ const movies = [
   },
   {
     title: "Gotham",
-    year: "2014–",
+    year: "2014",
     runtime: "42 min",
     director: "N/A",
     image:
@@ -100,7 +100,7 @@ const movies = [
   },
   {
     title: "Power",
-    year: "2014–",
+    year: "2014",
     runtime: "50 min",
     director: "N/A",
     image:
@@ -111,7 +111,7 @@ const movies = [
   },
   {
     title: "Narcos",
-    year: "2015–",
+    year: "2015",
     runtime: "49 min",
     director: "N/A",
     image:
@@ -122,7 +122,7 @@ const movies = [
   },
   {
     title: "Breaking Bad",
-    year: "2008–2013",
+    year: "20082013",
     runtime: "49 min",
     director: "N/A",
     image:
@@ -166,7 +166,7 @@ const movies = [
   },
   {
     title: "Luke Cage",
-    year: "2016–",
+    year: "2016",
     runtime: "55 min",
     director: "N/A",
     image:
@@ -177,4 +177,37 @@ const movies = [
   },
 ];
 
-export default movies;
+export function Movie() {
+  return (
+    <div>
+      <h1>Movie List Section</h1>
+      <div>
+        {movies.map((item) => (
+          <div className="container">
+            <div>
+              <img className="image" src={item.image} alt="" />
+            </div>
+            <div className="text-container">
+              <div className="text">title: {item.title}</div>
+              <div className="text">year: {item.year}</div>
+              <div className="text">runtime: {item.runtime}</div>
+              <div className="text">director: {item.director}</div>
+              <div className="text-genres">
+                genres:{" "}
+                {item.genres.map((genre, i) => {
+                  return (
+                    <div className="genres" key={i}>
+                      {genre}
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="text">imdbRating: {item.imdbRating}</div>
+              <div className="text">imdbVotes: {item.imdbVotes}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
